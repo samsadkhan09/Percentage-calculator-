@@ -97,7 +97,7 @@
       output.style.color = "#ffffff";
       output.innerHTML = `${percentText}<br>${gradeText}<br>${resultText}`;
 
-      const message = `📗 *My Exam Result:*\n${percentText}\n${gradeText}\n${resultText}\n\nCheck your result here ? [Your App Link or Name]`;
+      const message = `📗 *My Exam Result:*\n${percentText}\n${gradeText}\n${resultText}\n\nCheck your result here ? [https://percentage-calculator-bkzb.vercel.app/]`;
 
       const encodedMessage = encodeURIComponent(message);
       whatsappLink.href = `https://wa.me/?text=${encodedMessage}`;
