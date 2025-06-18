@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Percentage Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #2193b0, #6dd5ed);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      background-color: rgba(0,0,0,0.3);
+      max-width: 400px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .calculate-btn {
+      background-color: #ffcc00;
+    }
+    .share-btn {
+      background-color: #25D366;
+      color: white;
+      margin-top: 15px;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>? Student Percentage Calculator</h2>
+    <input type="number" id="obtained" placeholder="Enter Your Total Marks" />
+    <input type="number" id="total" placeholder="Enter Board Total Marks" />
+    <br />
+    <button class="calculate-btn" onclick="calculatePercentage()">Calculate</button>
+    <div class="result" id="output"></div>
+    <a id="whatsappLink" href="#" target="_blank">
+      <button class="share-btn">? Share on WhatsApp</button>
+    </a>
+  </div>
+
+  <script>
+    function calculatePercentage() {
+      const obtained = parseFloat(document.getElementById("obtained").value);
+      const total = parseFloat(document.getElementById("total").value);
+      const output = document.getElementById("output");
+      const whatsappLink = document.getElementById("whatsappLink");
+
+      if (isNaN(obtained) || isNaN(total) || total <= 0) {
+        output.innerHTML = "? Please enter valid numbers.";
+        output.style.color = "#ff4444";
+        whatsappLink.href = "#";
+        return;
+      }
+
+      const percent = (obtained / total) * 100;
+      let grade = "";
+      let result = percent >= 33 ? "? Pass" : "? Fail";
+
+      if (percent >= 90) grade = "A+";
+      else if (percent >= 75) grade = "A";
+      else if (percent >= 60) grade = "B";
+      else if (percent >= 45) grade = "C";
+      else if (percent >= 33) grade = "D";
+      else grade = "F";
+
+      const percentText = `? Percentage: ${percent.toFixed(2)}%`;
+      const gradeText = `? Grade: ${grade}`;
+      const resultText = `? Result: ${result}`;
+
+      output.style.color = "#ffffff";
+      output.innerHTML = `${percentText}<br>${gradeText}<br>${resultText}`;
+
+      const message = `? *My Exam Result:*\n${percentText}\n${gradeText}\n${resultText}\n\nCheck your result here ? [Your App Link or Name]`;
+
+      const encodedMessage = encodeURIComponent(message);
+      whatsappLink.href = `https://wa.me/?text=${encodedMessage}`;
+    }
+  </script>
+  <script type="text/javascript">
+	atOptions = {
+		'key' : '5395e377a6162916b4bfdde6777923cf',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/5395e377a6162916b4bfdde6777923cf/invoke.js"></script>
+</body>
+</html>
