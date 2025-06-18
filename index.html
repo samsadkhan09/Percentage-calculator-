@@ -54,14 +54,14 @@
 </head>
 <body>
   <div class="container">
-    <h2>? Student Percentage Calculator</h2>
+    <h2>📘 Student Percentage Calculator</h2>
     <input type="number" id="obtained" placeholder="Enter Your Total Marks" />
     <input type="number" id="total" placeholder="Enter Board Total Marks" />
     <br />
     <button class="calculate-btn" onclick="calculatePercentage()">Calculate</button>
     <div class="result" id="output"></div>
     <a id="whatsappLink" href="#" target="_blank">
-      <button class="share-btn">? Share on WhatsApp</button>
+      <button class="share-btn">📤 Share on WhatsApp</button>
     </a>
   </div>
 
@@ -73,7 +73,7 @@
       const whatsappLink = document.getElementById("whatsappLink");
 
       if (isNaN(obtained) || isNaN(total) || total <= 0) {
-        output.innerHTML = "? Please enter valid numbers.";
+        output.innerHTML = "❌ Please enter valid numbers.";
         output.style.color = "#ff4444";
         whatsappLink.href = "#";
         return;
@@ -81,7 +81,7 @@
 
       const percent = (obtained / total) * 100;
       let grade = "";
-      let result = percent >= 33 ? "? Pass" : "? Fail";
+      let result = percent >= 33 ? "✅ Pass" : "❌ Fail";
 
       if (percent >= 90) grade = "A+";
       else if (percent >= 75) grade = "A";
@@ -90,14 +90,14 @@
       else if (percent >= 33) grade = "D";
       else grade = "F";
 
-      const percentText = `? Percentage: ${percent.toFixed(2)}%`;
-      const gradeText = `? Grade: ${grade}`;
-      const resultText = `? Result: ${result}`;
+      const percentText = `🎯 Percentage: ${percent.toFixed(2)}%`;
+      const gradeText = `🏅 Grade: ${grade}`;
+      const resultText = `📄 Result: ${result}`;
 
       output.style.color = "#ffffff";
       output.innerHTML = `${percentText}<br>${gradeText}<br>${resultText}`;
 
-      const message = `? *My Exam Result:*\n${percentText}\n${gradeText}\n${resultText}\n\nCheck your result here ? [Your App Link or Name]`;
+      const message = `📗 *My Exam Result:*\n${percentText}\n${gradeText}\n${resultText}\n\nCheck your result here ? [Your App Link or Name]`;
 
       const encodedMessage = encodeURIComponent(message);
       whatsappLink.href = `https://wa.me/?text=${encodedMessage}`;
